@@ -2,7 +2,7 @@
 Todo list about github
 
 1. Concept 
-* Unordered sub-list.
+
 * Add a new "todo" about a project 
 * Write what you have to do about the project
 * Set the priority of the "todo"

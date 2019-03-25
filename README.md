@@ -14,9 +14,9 @@ Todo list about github
 
 * You can filter all your todo by : 
 
-- Status (Done or not)
-- Alphabetical
-- Priority (Medium | High | Low)
+ > Status (Done or not),
+ > Alphabetical,
+ > Priority (Medium , High , Low),
 
 3. To use : 
 

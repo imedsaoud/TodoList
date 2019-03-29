@@ -1,4 +1,4 @@
-# TodoListGit
+w# TodoListGit
 Todo list about github
 
 1. Concept 
@@ -19,5 +19,5 @@ Todo list about github
 ⋅⋅* Priority (Medium | High | Low)
 
 3. To use : 
-
+⋅⋅* Unordered sub-list.
 IN CONSTRUCTION 

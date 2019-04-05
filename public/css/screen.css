@@ -1,0 +1,71 @@
+header {
+    width: 80%;
+    margin: 10% auto;
+}
+
+form {
+    margin: auto auto;
+    width: 50%;
+}
+
+.hidden {
+    display: none;
+}
+.firstHeader{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.firstHeader h1 {
+    font-size: 30px;
+}
+
+.firstHeader .new {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #143766;
+    color: white;
+    width: 138px;
+    text-align: center;
+    padding-top: 19px;
+    height: 55px;
+    border-radius: 20px;
+}
+
+header .category {
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    align-items: flex-start;
+    border-bottom: 1px solid #e7ebf0;
+    padding-bottom: 15px;
+    padding-left: 2px;
+}
+header .category li {
+
+    width: 200px;
+}
+.columns  {
+    display: flex;
+    width: 152%;
+    margin-top: 59px;
+    padding-left: 23px;
+    font-size: 14px;
+}
+
+.columns li {
+    width: 15%;
+}
+
+.column__priority li:not(:first-child) {
+    display: none;
+}
+
+.column__status li:not(:first-child) {
+    display: none;
+}
+
+.effect:hover > li:not(:first-child) {
+    display: block;
+}

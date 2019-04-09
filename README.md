@@ -1,4 +1,4 @@
-w# TodoListGit
+# TodoListGit
 Todo list about github
 
 1. Concept 

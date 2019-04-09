@@ -69,3 +69,22 @@ header .category li {
 .effect:hover > li:not(:first-child) {
     display: block;
 }
+
+#Capa_1 {
+    width: 30px;
+    height: 30px;
+}
+
+.todos {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.todo {
+    width: 350px;
+}
+
+.formOpen {
+    display: block;
+}

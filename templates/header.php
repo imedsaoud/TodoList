@@ -3,7 +3,7 @@
         <h1>To do List</h1>
         <div class="new">New</div>
     </div>
-
+    <!---------------------------------------------TodosForm--------------------------------------------------->
     <div id="addTodoForm" class="hidden">
         <form action="/form" method="post">
             <input name="todo_task" type="text" placeholder="Tâche" />
@@ -29,6 +29,7 @@
             <input type="submit" />
         </form>
     </div>
+    <!---------------------------------------------CategoryList--------------------------------------------------->
     <ul class="category">
         <li>All</li>
         <li>Psr</li>
@@ -36,6 +37,7 @@
         <li>Maths</li>
         <li>Algo</li>
     </ul>
+    <!---------------------------------------------TodosColumn--------------------------------------------------->
     <ul class="columns">
 
         <li>Todo</li>
@@ -63,6 +65,5 @@
         <li>
             DELETE
         </li>
-
     </ul>
 </header>

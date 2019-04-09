@@ -19,10 +19,7 @@ Todo list about github
  > Priority (Medium , High , Low),
 
 3. To use : 
-<<<<<<< HEAD
-⋅⋅* Unordered sub-list.
+
 IN CONSTRUCTION 
 =======
 
-IN CONSTRUCTION 
->>>>>>> 7d492e9197c517d6537a68b4393db0ba7a43bdb2

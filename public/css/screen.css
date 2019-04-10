@@ -1,6 +1,6 @@
 header {
     width: 80%;
-    margin: 10% auto;
+    margin: 3% auto;
 }
 
 form {
@@ -55,7 +55,8 @@ header .category li {
 }
 
 .columns li {
-    width: 15%;
+    width: 349px;
+    font-size: 20px;
 }
 
 .column__priority li:not(:first-child) {
@@ -82,7 +83,9 @@ header .category li {
 }
 
 .todo {
-    width: 350px;
+    width: 170%;
+    padding-left: 21px;
+    font-size: 15px;
 }
 
 .formOpen {

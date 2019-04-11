@@ -2,14 +2,29 @@
 require_once "../logic/mainLogic.php";
 
 
-$url = $_SERVER["REQUEST_URI"];
+$uri = $_SERVER["REQUEST_URI"];
+$method = $_SERVER['REQUEST_METHOD'];
 
 
 
 
-if($url === '/' ){
-     echo DefaultState($pdo);
 
-} else {
-    echo "404 not found";
+
+if($method === GET){
+    if($uri === '/' ){
+        echo DefaultState($pdo);
+
+    } else {
+        echo "404 not found";
+    }
+}
+
+
+if($method === POST){
+    if($uri === '/add' ){
+         addTodo($pdo);
+
+    } else {
+        echo "404 not found";
+    }
 }

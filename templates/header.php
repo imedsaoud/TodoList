@@ -5,7 +5,7 @@
     </div>
     <!---------------------------------------------TodosForm--------------------------------------------------->
     <div id="addTodoForm" class="hidden">
-        <form action="/form" method="post">
+        <form action="/add" method="post">
             <input name="todo_task" type="text" placeholder="Tâche" />
             <input name="todo_url" type="text" placeholder="URL du Github" />
             <select name="todo_category">

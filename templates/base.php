@@ -10,7 +10,7 @@
     <title>TodoGit</title>
 </head>
 <body>
-<?php   $content;?>
+<?= $content["content"]?>
 
 <script src="/scripts/scripts.js"></script>
 </body>

@@ -3,48 +3,55 @@
 require_once "connect.php";
 
 
-function addTodo(PDO $pdo){
-    $add_todo = "INSERT INTO 
-  `todo`
-      (`todo_task`,
-      `todo_url`,
-      `todo_priority`,
-      `todo_category`,
-      `todo_status`)
-  VALUES
-    (:todo_content,
-    :todo_git,
-    :todo_priority,
-    :todo_category,
-    :todo_status)   
-  ;";
+function addTodo( PDO $pdo) {
+
+    var_dump($_POST);
+    $add_todo = "INSERT INTO `todo`
+                      (
+                       `task`,
+                       `url`,
+                       `priority`,
+                       `category`,
+                       `status`
+                       )
+                VALUES
+                      (
+                       :task,
+                       :url,
+                       :priority,
+                       :category,
+                       :state
+                       )   
+                  ;";
     $done = 'To Do';
     $stmt = $pdo->prepare($add_todo);
-    $stmt->bindValue(":todo_task", $_POST["todo_content"], \PDO::PARAM_STR);
-    $stmt->bindValue(":todo_url", $_POST["todo_git"], \PDO::PARAM_STR);
-    $stmt->bindValue(":todo_priority", $_POST["todo_priority"], \PDO::PARAM_STR);
-    $stmt->bindValue(":todo_category", $_POST["todo_category"], \PDO::PARAM_STR);
-    $stmt->bindValue(":todo_state", $done, \PDO::PARAM_STR);
+    $stmt->bindValue(":task", $_POST["task"],\PDO::PARAM_STR);
+    $stmt->bindValue(":url", $_POST["url"] , \PDO::PARAM_STR);
+    $stmt->bindValue(":priority", $_POST["priority"] , \PDO::PARAM_STR);
+    $stmt->bindValue(":category", $_POST["category"] , \PDO::PARAM_STR);
+    $stmt->bindValue(":state", $_POST["status"], \PDO::PARAM_STR);
     $stmt->execute();
-    header("Location: ../public/index.php");
+    header("Location: /" );
+
+    exit;
 }
 
 
 function getTodo(PDO $pdo){
     $getTodo = "SELECT
-                  `todo_task`,
-                  `todo_url`,
-                  `todo_priority`,
-                  `todo_category`,
-                  `todo_status`
+                  `task`,
+                  `url`,
+                  `priority`,
+                  `category`,
+                  `status`
                 FROM
                   `todo`
                 ORDER BY
-                  todo_id DESC
+                  id DESC
                 ;";
     $stmt = $pdo->prepare($getTodo);
     $stmt->execute();
-    return $todos = $stmt->fetch(\PDO::FETCH_ASSOC);
+    return $todos = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 }
 
 

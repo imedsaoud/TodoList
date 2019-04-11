@@ -3,7 +3,7 @@
 require_once "../data/queries.php";
 
 
-function render(array $content)  {
+function render(array $content): string   {
     ob_start();
     require_once "../templates/base.php";
     return ob_get_clean();
@@ -12,12 +12,16 @@ function render(array $content)  {
 
 
 
-function DefaultState (PDO $pdo) {
+function DefaultState (PDO $pdo): string  {
     $todosContent = getTodo($pdo);
+
+    $dataTodos = ([
+        "content" => $todosContent
+    ]);
 
     ob_start();
     require_once "../templates/home.php";
-    $content = ob_get_contents();
+    $content = ob_get_clean();
 
 
     return render(["content" => $content]);

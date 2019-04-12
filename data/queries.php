@@ -1,11 +1,11 @@
 <?php
 
-require_once "connect.php";
+require_once __ROOT_DIR__ ."/data/connect.php";
 
 
-function addTodo( PDO $pdo) {
+function addTodo( PDO $pdo , array $newtodo) {
 
-    var_dump($_POST);
+
     $add_todo = "INSERT INTO `todo`
                       (
                        `task`,
@@ -23,17 +23,14 @@ function addTodo( PDO $pdo) {
                        :state
                        )   
                   ;";
-    $done = 'To Do';
     $stmt = $pdo->prepare($add_todo);
-    $stmt->bindValue(":task", $_POST["task"],\PDO::PARAM_STR);
-    $stmt->bindValue(":url", $_POST["url"] , \PDO::PARAM_STR);
-    $stmt->bindValue(":priority", $_POST["priority"] , \PDO::PARAM_STR);
-    $stmt->bindValue(":category", $_POST["category"] , \PDO::PARAM_STR);
-    $stmt->bindValue(":state", $_POST["status"], \PDO::PARAM_STR);
+    $stmt->bindValue(":task", $newtodo["task"],\PDO::PARAM_STR);
+    $stmt->bindValue(":url", $newtodo["url"] , \PDO::PARAM_STR);
+    $stmt->bindValue(":priority", $newtodo["priority"] , \PDO::PARAM_STR);
+    $stmt->bindValue(":category", $newtodo["category"] , \PDO::PARAM_STR);
+    $stmt->bindValue(":state", $newtodo["state"], \PDO::PARAM_STR);
     $stmt->execute();
-    header("Location: /" );
 
-    exit;
 }
 
 

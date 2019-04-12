@@ -1,5 +1,7 @@
 <?php
-require_once "../logic/mainLogic.php";
+require_once "conf.php";
+require_once __ROOT_DIR__ . "/logic/mainLogic.php";
+
 
 
 $uri = $_SERVER["REQUEST_URI"];
@@ -22,7 +24,9 @@ if($method === GET){
 
 if($method === POST){
     if($uri === '/add' ){
-         addTodo($pdo);
+
+        queryCheckAdd($_POST , $pdo );
+        header("location: /");
 
     } else {
         echo "404 not found";

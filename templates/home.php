@@ -7,21 +7,23 @@
     <!---------------------------------------------TodosForm--------------------------------------------------->
     <div id="addTodoForm" class="hidden">
         <form action="/add" method="post">
-            <input name="task" type="text" placeholder="Tâche" />
-            <input name="url" type="text" placeholder="URL du Github" />
-            <select name="category">
-                <option value="all">All</option>
+            <input name="task" type="text" placeholder="Tâche" required/>
+            <input name="url" type="text" placeholder="URL du Github" required/>
+            <select name="category" required>
+                <option value="">All</option>
                 <option value="psr">PSR</option>
                 <option value="design patterns">Design Patterns</option>
                 <option value="maths">Maths</option>
                 <option value="algo">Algo</option>
             </select>
-            <select name="priority">
+            <select name="priority" required>
+                <option value="">Priority</option>
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
                 <option value="high">High</option>
             </select>
-            <select name="state">
+            <select name="state" required>
+                <option value="">Status</option>
                 <option value="to Do">To Do</option>
                 <option value="doing">Doing</option>
                 <option value="need review">Need Review</option>

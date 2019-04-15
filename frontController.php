@@ -1,28 +1,31 @@
 <?php
+
 require_once "conf.php";
 require_once __ROOT_DIR__ . "/logic/mainLogic.php";
-
-
 
 $uri = $_SERVER["REQUEST_URI"];
 $method = $_SERVER['REQUEST_METHOD'];
 
-
-
-
-
-
-if($method === GET){
+/**
+ * What the fuck is that GET constant here ?
+ * PSR2, write a conditionnal block...
+ * Shouldn't echo anything here
+ */
+if($method === GET) {
     if($uri === '/' ){
         echo DefaultState($pdo);
-
     } else {
         echo "404 not found";
     }
 }
 
-
-if($method === POST){
+/**
+ * Shouldn't echo, $_POST checks already done elsewhere in a bad manner
+ * empty is cancer
+ * useless blank lines
+ * 404 is an http error code, you should at least set the http error code
+ */
+if($method === POST) {
     if($uri === '/add' ){
 
         if (empty($_POST['task'])) {
@@ -54,7 +57,6 @@ if($method === POST){
             $newtodo['category'] = $todoCategory;
         }
 
-
         if (empty($_POST['priority'])) {
             echo 'Priority cannot be empty';
         } else {
@@ -71,7 +73,6 @@ if($method === POST){
 
         addTodo($pdo , $newtodo);;
         header("location: /");
-
     } elseif ($uri === '/delete') {
         $delete =  htmlspecialchars($_POST["delete"]);
         deleteTodo($pdo ,$delete);
@@ -80,5 +81,3 @@ if($method === POST){
         echo "404 not found";
     }
 }
-
-

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Obviously if it works, conf.php is already here as it define __ROOT_DIR__... Useless line
+ */
 require_once __ROOT_DIR__ . "/conf.php";
 
 try {
@@ -7,5 +10,5 @@ try {
     $pdo = new PDO($dsn,__DBUSER__,__DBPASSWORD__);
     $pdo->setAttribute( \PDO::ATTR_ERRMODE , \PDO::ERRMODE_EXCEPTION);
 }catch(Error $e) {
-  die($e->getmessage()) ;
+  die($e->getmessage());
 }

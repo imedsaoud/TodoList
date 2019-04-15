@@ -1,12 +1,19 @@
 <?php
 
+/**
+ * It's useless to declare a function inside a logical block... Also, only one line
+ * Also, only one empty line between php tag and code / commentary start
+ */
+function validate($str) {
+    return trim(htmlspecialchars($str));
+}
 
+/**
+ * This part of code shouldn't echo anything
+ * It's all the more useless as it recheck what has already been checked in /frontController
+ * Empty is the worst check ever on variables... Find something else
+ */
 if ($method === 'POST') {
-
-    function validate($str) {
-        return trim(htmlspecialchars($str));
-    }
-
     if (empty($_POST['task'])) {
         echo 'Task should be filled';
     } else {
@@ -39,22 +46,18 @@ if ($method === 'POST') {
 
     if (empty($_POST['priority'])) {
         echo 'Priority cannot be empty';
-    }else {
+    } else {
         $todoPriority = validate($_POST['priority']);
         $newtodo["priority"] = validate($_POST['priority']);
     }
 
     if (empty($_POST['state'])) {
         echo 'State cannot be empty';
-    }else {
+    } else {
         $todoState = validate($_POST['state']);
         $newtodo["state"] = $todoState;
 
     }
 
-
-
     addTodo($pdo , $newtodo);
-
-
 }

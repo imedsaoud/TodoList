@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="fr">
 <head>
@@ -10,6 +9,7 @@
     <title>TodoGit</title>
 </head>
 <body>
+
 <?= $content["content"]?>
 
 <script src="/scripts/scripts.js"></script>

@@ -29,7 +29,7 @@
                 <option value="need review">Need Review</option>
                 <option value="done">Done</option>
             </select>
-            <input type="submit" />
+            <input type="submit"/>
         </form>
     </div>
     <!---------------------------------------------CategoryList--------------------------------------------------->
@@ -72,6 +72,7 @@
 </header>
 
 <?php
+
 foreach ($dataTodos["content"] as $data){
 /*-----------------------------------------------------------------Todos------------------------------------------------------------------*/
     echo     ' 
@@ -81,12 +82,14 @@ foreach ($dataTodos["content"] as $data){
                      <li class = "todo todo__priority">'.$data["priority"].'</li>
                      <li class = "todo todo__status">'.$data["status"].'</li>
                      <form class="delete-todo" action="/delete" method="post">
+                        <input name ="delete" class="hidden"  value = '.$data["id"].'>
                         <input id="delete_todo" class="hidden" type="submit">
                         <label for="delete_todo"><img src="https://image.flaticon.com/icons/svg/63/63260.svg" width="28px"></label>
                      </form>
                  </ul>
              ';
 }
+
 ?>
 
 

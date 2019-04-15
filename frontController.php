@@ -15,7 +15,7 @@ if($method === GET) {
     if($uri === '/' ){
         echo DefaultState($pdo);
     } else {
-        echo "404 not found";
+        http_response_code(404);
     }
 }
 
@@ -28,56 +28,57 @@ if($method === GET) {
 if($method === POST) {
     if($uri === '/add' ){
 
-        if (empty($_POST['task'])) {
-            echo 'Task should be filled';
-        } else {
+        if (isset($_POST['task'])) {
             $todoTask = validate($_POST['task']);
             if (!preg_match('/^[a-zA-Z0-9\s]+$/', $todoTask)) {
-                echo 'Task can only contain letters, numbers and white spaces';
+                $error["task"] = 'Task can only contain letters, numbers and white spaces';
+
             } else {
                 $newtodo["task"] = $todoTask ;
             }
+        } else {
+            $error["Emptytask"] = 'Task should be filled';
         }
 
-        if (empty($_POST['url'])) {
-            echo 'Please enter url';
-        } else {
+        if (isset($_POST['url'])) {
             $todoUrl = validate($_POST['url']);
             if (!filter_var($todoUrl, FILTER_VALIDATE_URL)) {
-                echo 'Invalid url';
+                $error["url"] = 'Invalid url';
             } else {
                 $newtodo["url"] = $todoUrl ;
             }
+        } else {
+            $error["Emmptyurl"] = 'Please enter url';
         }
 
-        if (empty($_POST['category'])) {
-            echo  'Category cannot be empty';
-        } else {
+        if (isset($_POST['category'])) {
             $todoCategory =  validate($_POST['category']);
             $newtodo['category'] = $todoCategory;
+        } else {
+            $error["category"] =  'Category cannot be empty';
         }
 
-        if (empty($_POST['priority'])) {
-            echo 'Priority cannot be empty';
-        } else {
+        if (isset($_POST['priority'])) {
             $todoPriority = validate($_POST['priority']);
             $newtodo["priority"] = validate($_POST['priority']);
+        } else {
+            $error["priority"] = 'Priority cannot be empty';
         }
 
-        if (empty($_POST['state'])) {
-            echo 'State cannot be empty';
-        } else {
+        if (isset($_POST['state'])) {
             $todoState = validate($_POST['state']);
             $newtodo["state"] = $todoState;
+        } else {
+            $error["state"] = 'State cannot be empty';
         }
 
-        addTodo($pdo , $newtodo);;
+        addTodo($pdo , $newtodo);
         header("location: /");
     } elseif ($uri === '/delete') {
         $delete =  htmlspecialchars($_POST["delete"]);
         deleteTodo($pdo ,$delete);
         header("location: /");
     } else {
-        echo "404 not found";
+        http_response_code(404);
     }
 }

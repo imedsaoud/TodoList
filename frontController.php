@@ -57,14 +57,14 @@ if($method === POST){
 
         if (empty($_POST['priority'])) {
             echo 'Priority cannot be empty';
-        }else {
+        } else {
             $todoPriority = validate($_POST['priority']);
             $newtodo["priority"] = validate($_POST['priority']);
         }
 
         if (empty($_POST['state'])) {
             echo 'State cannot be empty';
-        }else {
+        } else {
             $todoState = validate($_POST['state']);
             $newtodo["state"] = $todoState;
         }
@@ -72,7 +72,13 @@ if($method === POST){
         addTodo($pdo , $newtodo);;
         header("location: /");
 
+    } elseif ($uri === '/delete') {
+        $delete =  htmlspecialchars($_POST["delete"]);
+        deleteTodo($pdo ,$delete);
+        header("location: /");
     } else {
         echo "404 not found";
     }
 }
+
+

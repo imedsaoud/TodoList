@@ -36,6 +36,7 @@ function addTodo( PDO $pdo , array $newtodo) {
 
 function getTodo(PDO $pdo){
     $getTodo = "SELECT
+                  `id`,
                   `task`,
                   `url`,
                   `priority`,
@@ -51,5 +52,13 @@ function getTodo(PDO $pdo){
     return $todos = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 }
 
-
+function deleteTodo(PDO $pdo ,$dataId){
+    $deleteTodo = "DELETE FROM `todo`
+                    
+                    WHERE id = :id
+                  ;";
+    $stmt = $pdo->prepare($deleteTodo);
+    $stmt->bindValue(":id",$dataId ,\PDO::PARAM_STR);
+    $stmt->execute();
+}
 

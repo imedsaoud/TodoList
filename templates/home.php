@@ -33,11 +33,10 @@
     </div>
     <!---------------------------------------------CategoryList--------------------------------------------------->
     <ul class="category">
-        <li>All</li>
-        <li>Psr</li>
-        <li>Design Patterns</li>
-        <li>Maths</li>
-        <li>Algo</li>
+        <li><a href="/All">All</a></li>
+        <li><a href="/Psr">Psr</a></li>
+        <li><a href="/Maths">Maths</a></li>
+        <li><a href="/Algo">Algo</a></li>
     </ul>
     <!---------------------------------------------TodosColumn--------------------------------------------------->
     <ul class="columns">
@@ -48,20 +47,20 @@
 
         <li class = column__priority>
             <ul class = "effect">
-                <li >Priority</li>
-                <li >Low</li>
-                <li >Medium</li>
-                <li >High</li>
+                <li>Priority</li>
+                <li><a href="/Low">Low</a></li>
+                <li><a href="/Medium">Medium</a></li>
+                <li><a href="/High">High</a></li>
             </ul>
         </li>
 
         <li class="column__status">
             <ul class = "effect">
-                <li >Status</li>
-                <li >To do</li>
-                <li >Doing</li>
-                <li >Need review</li>
-                <li >done</li>
+                <li>Status</li>
+                <li><a href="/Todo">To Do</a></li>
+                <li><a href="/Doing">Doing</a></li>
+                <li><a href="/NeedReview">Need Review</a></li>
+                <li><a href="/Done">Done</a></li>
             </ul>
         </li>
         <li>

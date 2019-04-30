@@ -1,5 +1,5 @@
 # TodoListGit
-Todo list about github
+Todo list github
 
 1. Concept 
 
